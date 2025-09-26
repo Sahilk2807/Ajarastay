@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ajara Stay • Hostel Management</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="description" content="Ajara Stay - Hostel Management System" />
+</head>
+<body class="min-h-screen bg-gray-50 text-gray-900">
+  <header class="sticky top-0 z-10 bg-white/80 backdrop-blur border-b">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex h-8 w-8 items-center justify-center rounded bg-indigo-600 text-white font-bold">A</span>
+        <span class="font-semibold">Ajara Stay</span>
+      </div>
+      <nav class="hidden sm:flex items-center gap-4 text-sm">
+        <a href="#features" class="hover:text-indigo-600">Features</a>
+        <a href="#contact" class="hover:text-indigo-600">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+    <section class="order-2 md:order-1">
+      <h1 class="text-3xl md:text-4xl font-bold leading-tight">Smart, Simple Hostel Management</h1>
+      <p class="mt-3 text-gray-600">For students and admins: registration, room allocation, fees, complaints, and notices—accessible anywhere.</p>
+
+      <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="p-4 rounded-lg border bg-white">
+          <h3 class="font-semibold">Students</h3>
+          <p class="text-sm text-gray-600">Register, login, view room and fees, submit complaints.</p>
+        </div>
+        <div class="p-4 rounded-lg border bg-white">
+          <h3 class="font-semibold">Admins</h3>
+          <p class="text-sm text-gray-600">Manage students, rooms, fees, complaints, and notices.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="order-1 md:order-2">
+      <div class="bg-white rounded-lg border p-6 shadow-sm">
+        <div class="flex gap-2 text-sm mb-4">
+          <button id="tab-login" class="px-3 py-1 rounded bg-indigo-600 text-white">Login</button>
+          <button id="tab-signup" class="px-3 py-1 rounded hover:bg-gray-100">Sign up</button>
+        </div>
+
+        <form id="login-form" class="space-y-3" method="POST" action="auth">
+          <input type="hidden" name="action" value="login" />
+          <label class="block text-sm">Email
+            <input name="email" type="email" required class="mt-1 w-full rounded border px-3 py-2" />
+          </label>
+          <label class="block text-sm">Password
+            <input name="password" type="password" required class="mt-1 w-full rounded border px-3 py-2" />
+          </label>
+          <label class="block text-sm">Role
+            <select name="role" class="mt-1 w-full rounded border px-3 py-2">
+              <option value="student">Student</option>
+              <option value="admin">Admin</option>
+            </select>
+          </label>
+          <button class="w-full bg-indigo-600 text-white rounded px-4 py-2">Login</button>
+        </form>
+
+        <form id="signup-form" class="space-y-3 hidden" method="POST" action="auth">
+          <input type="hidden" name="action" value="signup" />
+          <label class="block text-sm">Full name
+            <input name="name" required class="mt-1 w-full rounded border px-3 py-2" />
+          </label>
+          <label class="block text-sm">PRN
+            <input name="prn" required class="mt-1 w-full rounded border px-3 py-2" />
+          </label>
+          <label class="block text-sm">Email
+            <input name="email" type="email" required class="mt-1 w-full rounded border px-3 py-2" />
+          </label>
+          <label class="block text-sm">Phone
+            <input name="phone" type="tel" required class="mt-1 w-full rounded border px-3 py-2" />
+          </label>
+          <label class="block text-sm">Room preference
+            <input name="room_preference" class="mt-1 w-full rounded border px-3 py-2" placeholder="e.g. A-101" />
+          </label>
+          <label class="block text-sm">Password
+            <input name="password" type="password" minlength="6" required class="mt-1 w-full rounded border px-3 py-2" />
+          </label>
+          <button class="w-full bg-green-600 text-white rounded px-4 py-2">Create account</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact" class="mt-8 border-t bg-white">
+    <div class="max-w-6xl mx-auto px-4 py-6 text-sm text-gray-600">
+      © <span id="year"></span> Ajara Stay. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
